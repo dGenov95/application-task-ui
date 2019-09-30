@@ -1,25 +1,14 @@
 import React from 'react';
 import AppRouter from './router/AppRouter';
 import Header from './header/Header';
+import Footer from './footer/Footer';
 
 const App = () => {
-
-    const appLinks = [
-        {
-            id: 1,
-            name: 'All Applications',
-            href: '/all',
-        },
-        {
-            id:2,
-            name: 'New Application',
-            href: '/new',
-        },
-    ];
     return (
         <div>
-            <Header links={appLinks}/>
+            <Header />
             <AppRouter />
+            <Footer authorName={'Dimitar Genov'} year={2019}/>
         </div>
     )
 };
