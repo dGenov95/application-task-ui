@@ -1,14 +1,32 @@
 import React from 'react';
 
 const ApplicationForm = (props) => {
-    const SUBMIT_BUTTON_VALUE = 'Submit form'
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        console.log(event);
+        
+        const formData = new FormData(event.target);
+        
+        fetch('http//localhost:8000/applications/', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(() => console.log('successfull form submission'))
+            .catch(err => console.log(err));
+    };
+
     return (
-        <form action ='http//localhost:8000/' method= 'POST'>
+        <form onSubmit= {handleFormSubmit}>
+            <label htmlFor='name' > Name: </label>
             <input type='text' name='name'/>
-            <input type='text' name='email'/>
+            <label htmlFor='email' > Email: </label>            
+            <input type='text' name='email' />
+            <label htmlFor='phone'> Phone: </label>
             <input type='text' name='phone'/>
-            <input type='number' name='loanAmount'/>
-            <input type='submit' value={SUBMIT_BUTTON_VALUE}/>
+            <label htmlFor='loanAmount'>Loan amount: </label>
+            <input type='number' name='loanAmount' />
+            <button>{'Submit form'}</button>
         </form>
     );
 }
