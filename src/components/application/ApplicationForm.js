@@ -4,11 +4,9 @@ const ApplicationForm = (props) => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log(event);
-        
         const formData = new FormData(event.target);
         
-        fetch('http//localhost:8000/applications/', {
+        fetch('http://localhost:8000/applications/', {
             method: 'POST',
             body: formData,
         })
