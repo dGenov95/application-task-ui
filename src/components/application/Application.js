@@ -5,7 +5,8 @@ const Application = ({match}) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [loanAmount, setLoanAmount] = useState(0);
+    const [loanAmount, setLoanAmount] = useState(0.0);
+    const [interestRate, setInterestRate] = useState(0.0);
 
     async function fetchApplication(id) {
         await fetch('http://localhost:8000/applications/' + id)
@@ -15,6 +16,7 @@ const Application = ({match}) => {
                 setEmail(res.email);
                 setPhone(res.phone);
                 setLoanAmount(res.loanAmount);
+                setInterestRate(res.interestRate);
 
             }, (err) => console.log(err));
     }
@@ -30,6 +32,7 @@ const Application = ({match}) => {
             <h2>Phone number: {phone}</h2>
             <hr/>
             <h1>Loan amount: {loanAmount}</h1>
+            <h2>Calculated Interest Rate: {interestRate}%</h2>
         </div>
     );
 
