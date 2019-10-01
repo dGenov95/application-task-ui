@@ -11,6 +11,11 @@ const AppRouter = () => (
         <Switch>
             <Route path="/all" component={AllApplications} />
             <Route path="/new" component={ApplicationForm} />
+            <Route path="/error" render={() => (
+                <div>
+                    <h1>Try again</h1>
+                </div>
+            )} />
             <Route path="/:id" component={Application} />
         </Switch>
     </div>
