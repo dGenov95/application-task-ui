@@ -11,7 +11,6 @@ const ApplicationForm = (props) => {
 
     const renderErrors = () => {
         const errors = validationErrors;
-        console.log(errors.length)
         if (errors.length > 0) {
             return errors.map(err => <li key={err.id}>{err.value}</li>);
         }
@@ -78,18 +77,26 @@ const ApplicationForm = (props) => {
     }
 
     return (
-        <div>
+        <div className={props.className}>
             {renderErrors()}
-            <form onSubmit={handleFormSubmit}>
-                <label htmlFor='name' > Name: </label>
-                <input type='text' name='name' required onChange={(e) => setName(e.target.value)}/>
-                <label htmlFor='email' > Email: </label>
-                <input type='email' name='email' required onChange={(e) => setEmail(e.target.value)}/>
-                <label htmlFor='phone'> Phone: </label>
-                <input type='text' name='phone' required onChange={(e) => setPhone(e.target.value)}/>
-                <label htmlFor='loanAmount'>Loan amount: </label>
-                <input type='number' name='loanAmount' required onChange={(e) => setLoanAmount(e.target.value)}/>
-                <button>{'Submit form'}</button>
+            <form  onSubmit={handleFormSubmit}>
+                <div className = 'form-group'>
+                    <label htmlFor='name' > Name: </label>
+                    <input type='text' name='name'  className='form-control'required onChange={(e) => setName(e.target.value)}/>
+                </div>
+                <div>
+                    <label htmlFor='email' > Email: </label>
+                    <input type='email' name='email'  className='form-control'required onChange={(e) => setEmail(e.target.value)}/>
+                </div>
+                <div>
+                    <label htmlFor='phone'> Phone: </label>
+                    <input type='text' name='phone' className='form-control' required onChange={(e) => setPhone(e.target.value)}/>
+                </div>
+                <div>
+                    <label htmlFor='loanAmount'>Loan amount: </label>
+                    <input type='number' name='loanAmount' className='form-control' required onChange={(e) => setLoanAmount(e.target.value)}/>
+                </div>
+                <button className='btn btn-primary mt-3'>{'Submit form'}</button>
             </form>
         </div>
     );

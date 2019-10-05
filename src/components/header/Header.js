@@ -15,9 +15,9 @@ const Header = (props) => {
             },
         ];
         return (
-            <div>
+            <div className={props.className}>
                 <header>
-                    <h1>Welcome!</h1>
+                    <h1 className='text-center'>Welcome!</h1>
                     <Nav links={appLinks}/>
                 </header>
             </div>

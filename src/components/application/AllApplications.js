@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, {Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const getApplicationItems = (applications) => {
     return applications.map(a => {
-        return <li key={a._id}>
+        return <li key={a._id} className='list-group-item list-group-item-action'>
             <Link to={{ pathname: '/' + a._id }}>{`${a._id} - ${a.name}`}</Link>
         </li>
     });             
@@ -20,15 +20,15 @@ const AllApplications = (props) => {
     }
 
     useEffect(() => {
-         fetchApplications();
-    },[])
+        fetchApplications();
+    }, [])
 
     return (
-        <div>
-            <ul>
+        <Fragment className={props.className}>
+            <ul className='list-group'>
                 {getApplicationItems(applications)}
             </ul>
-        </div>
+        </Fragment>
     );
 }
 

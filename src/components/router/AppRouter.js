@@ -6,8 +6,8 @@ import ApplicationForm from '../application/ApplicationForm';
 
 
            
-const AppRouter = () => (
-    <div>
+const AppRouter = (props) => (
+    <div className={props.className}>
         <Switch>
             <Route path="/all" component={AllApplications} />
             <Route path="/new" component={ApplicationForm} />

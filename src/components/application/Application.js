@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  React, {Fragment, useState, useEffect } from 'react';
 
 const Application = ({match}) => {
 
@@ -26,14 +26,14 @@ const Application = ({match}) => {
     });
 
     return (
-        <div>
+        <Fragment>
             <h1>Applicant Name: {name}</h1>
             <h2>Email address: {email}</h2>
             <h2>Phone number: {phone}</h2>
             <hr/>
             <h1>Loan amount: {loanAmount}</h1>
             <h2>Calculated Interest Rate: {interestRate}%</h2>
-        </div>
+        </Fragment>
     );
 
 };

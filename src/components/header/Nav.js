@@ -5,14 +5,19 @@ const Nav = (props) => {
     
     const getLinkItems = () => {
         return props.links.map(link => {
-            return <li key={link.id}><Link to={link.href}>{link.name}</Link></li>
+            return <li key={link.id} className='nav-item active'><Link className='nav-link' to={link.href}>{link.name}</Link></li>
         });
     }
     return (
-        <nav>
-            <ul>
-                {getLinkItems()}
-            </ul>
+        <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
+            < div className = 'navbar-collapse' >
+                <ul className='navbar-nav mr-auto'>
+                    <li key='home-id' className='nav-item active'><Link className='nav-link' to='/'>Home</Link></li>
+                </ul>
+                <ul className='navbar-nav ml-auto'>
+                    {getLinkItems()}
+                </ul>
+            </div>
         </nav>
     );
 };
